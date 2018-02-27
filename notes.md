@@ -1,5 +1,15 @@
 # Sharpen your Alexa skills
 
+## Alexa and Echo
+
+## Before you begin
+
+## Create Alexa skill
+
+## Testing your Alexa skill
+
+## Deploying Alexa skill
+
 ## Links
 
 [developer.amazon.com](http://developer.amazon.com)
