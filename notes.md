@@ -2,6 +2,8 @@
 
 ## Alexa and Echo
 
+![flow diagram](flow.png)
+
 ## Before you begin
 
 ## Create Alexa skill
