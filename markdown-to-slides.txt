@@ -1,0 +1,3 @@
+https://www.npmjs.com/package/markdown-to-slides
+npm install -g markdown-to-slides
+markdown-to-slides slides.md -o slides.html 

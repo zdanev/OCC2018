@@ -1,8 +1,22 @@
-# Sharpen your Alexa skills
+## Sharpen your Alexa skills
+
+### Zdravko Danev
+
+#### Sr. Developer @ AgileThought
+
+#### E-mail: zdanev@gmail.com
+
+#### Twitter: @zdanev
+
+#### Code and Slides: http://github.com/zdanev/occ2018
+
+---
 
 ## The state of AI, NLP, etc.
 
 ![smart speakers](smart-speakers.jpg)
+
+---
 
 ## Alexa and Echo
 
@@ -12,9 +26,13 @@
 
 - Alexa is the voice personality behind the Echo devices
 
+---
+
 ## User intereaction flow
 
 ![flow diagram](flow.png)
+
+---
 
 ## Before you begin
 
@@ -23,16 +41,22 @@ Register for a developer account(s)
 - go to developer.amazon.com and register for a free developer account
 - (optional) create aws.amazon.com account
 
+---
+
 ### Alexa Voice Service (AVS)
 
 - cloud based voice-recognition and NLP service that powers Amazom Alexa and Echo devices
 - can be used to voice-enable virtually any device (i.e. Raspberi Pi) for building home automation or other voice-enabled solution
+
+---
 
 ### Alexa Skills Kit (ASK)
 
 - Alexa Skills SDK
 - Documentation
 - Samples
+
+---
 
 ## Types of Alexa skills
 
@@ -54,6 +78,8 @@ Register for a developer account(s)
 - Provide content such as news for the user’s flash briefing. 
 - RSS or JSON feed.
 
+---
+
 ## Create Alexa skill
 
 1. Provide skill name
@@ -66,16 +92,26 @@ Register for a developer account(s)
 4. Add custom intent
 5. Add sample utterances
 
+---
+
 ## Testing your Alexa skill
+
+---
 
 ## Deploying Alexa skill
 
+---
+
 ## Links
 
-[developer.amazon.com](http://developer.amazon.com)
+#### Amazone Developer Portal
+[http://developer.amazon.com](http://developer.amazon.com)
 
-[developer.amazon.com/alexa](http://developer.amazon.com/alexa)
+#### Alexa Developer Portal
+[http://developer.amazon.com/alexa](http://developer.amazon.com/alexa)
 
-[AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/)
+#### AWS SDK for .NET
+[http://aws.amazon.com/sdk-for-net/](http://aws.amazon.com/sdk-for-net/)
 
-[Alexa Skills SDK for .NET](https://github.com/timheuer/alexa-skills-dotnet)
+#### Alexa Skills SDK for .NET (Tim Heuer)
+[https://github.com/timheuer/alexa-skills-dotnet](https://github.com/timheuer/alexa-skills-dotnet)

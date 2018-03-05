@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Sharpen your Alexa skills</title>
+		<style>
+			body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1, h2, h3 {
+	font-weight: 400;
+	margin-bottom: 0;
+}
+.remark-slide-content h1 { font-size: 3em; }
+.remark-slide-content h2 { font-size: 2em; }
+.remark-slide-content h3 { font-size: 1.6em; }
+.footnote {
+	position: absolute;
+	bottom: 3em;
+}
+li p { line-height: 1.25em; }
+.red { color: #fa0000; }
+.large { font-size: 2em; }
+a, a > code {
+	color: rgb(249, 38, 114);
+	text-decoration: none;
+}
+code {
+	background: none repeat scroll 0 0 #F8F8FF;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px 	;
+  padding: 0 0.2em;
+}
+.remark-code, .remark-inline-code { font-family: "Bitstream Vera Sans Mono", "Courier", monospace; }
+.remark-code-line-highlighted     { background-color: #373832; }
+.pull-left {
+	float: left;
+	width: 47%;
+}
+.pull-right {
+	float: right;
+	width: 47%;
+}
+.pull-right ~ p {
+	clear: both;
+}
+#slideshow .slide .content code {
+	font-size: 0.8em;
+}
+#slideshow .slide .content pre code {
+	font-size: 0.9em;
+	padding: 15px;
+}
+.main-title, .title {
+	background: #272822;
+	color: #777872;
+	text-shadow: 0 0 20px #333;
+}
+.title h1, .title h2, .main-title h1, .main-title h2 {
+	color: #f3f3f3;
+	line-height: 0.8em;
+}
+/* Custom */
+.remark-code {
+	display: block;
+	padding: 0.5em;
+}
+
+		</style>
+	</head>
+	<body>
+		<textarea id="source">
+## Sharpen your Alexa skills
+
+### Zdravko Danev
+
+#### Sr. Developer @ AgileThought
+
+#### E-mail: zdanev@gmail.com
+
+#### Twitter: @zdanev
+
+#### Code and Slides: http://github.com/zdanev/occ2018
+
+---
+
+## The state of AI, NLP, etc.
+
+![smart speakers](smart-speakers.jpg)
+
+---
+
+## Alexa and Echo
+
+- Echo is a hardware device ("smart speaker") device
+
+![echo devices](echo-devices.png)
+
+- Alexa is the voice personality behind the Echo devices
+
+---
+
+## User intereaction flow
+
+![flow diagram](flow.png)
+
+---
+
+## Before you begin
+
+Register for a developer account(s)
+
+- go to developer.amazon.com and register for a free developer account
+- (optional) create aws.amazon.com account
+
+---
+
+### Alexa Voice Service (AVS)
+
+- cloud based voice-recognition and NLP service that powers Amazom Alexa and Echo devices
+- can be used to voice-enable virtually any device (i.e. Raspberi Pi) for building home automation or other voice-enabled solution
+
+---
+
+### Alexa Skills Kit (ASK)
+
+- Alexa Skills SDK
+- Documentation
+- Samples
+
+---
+
+## Types of Alexa skills
+
+### Custom skills
+
+- Custom skills consume a web service that can be hosted anywhere and can be developed in any language.
+
+### Smart Home skills
+
+- Turn on/off the lights, set thermostat, control entertainment devices, etc.
+- All interactions are handled by the Smart Home Skill API.
+
+### Video skills
+
+- All interactions are handled by the Video Skill API.
+
+### Flash briefing skills
+
+- Provide content such as news for the user’s flash briefing. 
+- RSS or JSON feed.
+
+---
+
+## Create Alexa skill
+
+1. Provide skill name
+2. Select skill type
+3. Add skill invocation name
+- Two or more lower case words
+- Cannot be a lunch phrase (launch, ask, tell, load, begin, enable)
+- Cannot be a wake word (Alexa, Echo, Amazon, Computer)
+- Does not need to be unique
+4. Add custom intent
+5. Add sample utterances
+
+---
+
+## Testing your Alexa skill
+
+---
+
+## Deploying Alexa skill
+
+---
+
+## Links
+
+#### Amazone Developer Portal
+[http://developer.amazon.com](http://developer.amazon.com)
+
+#### Alexa Developer Portal
+[http://developer.amazon.com/alexa](http://developer.amazon.com/alexa)
+
+#### AWS SDK for .NET
+[http://aws.amazon.com/sdk-for-net/](http://aws.amazon.com/sdk-for-net/)
+
+#### Alexa Skills SDK for .NET (Tim Heuer)
+[https://github.com/timheuer/alexa-skills-dotnet](https://github.com/timheuer/alexa-skills-dotnet)
+		</textarea>
+		<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+		<script>
+			var slideshow = remark.create();
+		</script>
+		<script></script>
+	</body>
+</html>
