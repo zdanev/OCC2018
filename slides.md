@@ -43,29 +43,24 @@
 
 ---
 
-### User intereaction flow
+### User interaction flow
 
 ![flow diagram](flow-800.png)
 
 ---
 
-### Before you begin
-
-Register for a developer account(s)
-
-- go to developer.amazon.com and register for a free developer account
-- (optional) create aws.amazon.com account
-
----
-
 ### Alexa Voice Service (AVS)
 
-- cloud based voice-recognition and NLP service that powers Amazom Alexa and Echo devices
+[https://developer.amazon.com/alexa-voice-service](https://developer.amazon.com/alexa-voice-service)
+
+- cloud based voice-recognition and NLP service that powers Amazon Alexa and Echo devices
 - can be used to voice-enable virtually any device (i.e. Raspberi Pi) for building home automation or other voice-enabled solution
 
 ---
 
 ### Alexa Skills Kit (ASK)
+
+[https://developer.amazon.com/alexa-skills-kit](https://developer.amazon.com/alexa-skills-kit)
 
 - Alexa Skills SDK
 - Documentation
@@ -95,6 +90,36 @@ Register for a developer account(s)
 
 ---
 
+### Before you begin
+
+#### Register for a developer account(s)
+
+- go to [developer.amazon.com](http://developer.amazon.com) and register for a free developer account
+- (optional) create [aws.amazon.com](http://aws.amazon.com) account
+
+#### Download tools and SDKs
+
+- download Alexa Skills Kit
+- download AWS SDK for .net tools
+- download AWS CLI tools [aws.amazon.com/cli](http://aws.amazon.com/cli)
+
+---
+
+### Create AWS Lambda function with .net core
+
+[https://docs.aws.amazon.com/lambda/latest/dg/lambda-dotnet-coreclr-deployment-package.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-dotnet-coreclr-deployment-package.html)
+
+```
+aws configure
+dotnet new -i Amazon.Lambda.Templates::*
+md HelloLambda
+cd HelloLambda
+dotnet new lambda.EmptyFunction
+dotnet lambda deploy-function
+```
+
+---
+
 ### Create Alexa skill
 
 1. Provide skill name
@@ -109,6 +134,7 @@ Register for a developer account(s)
 
 ---
 
+
 ### Testing your Alexa skill
 
 ---
@@ -120,13 +146,17 @@ Register for a developer account(s)
 ### Links
 
 #### Amazon Developer Portal
+
 [http://developer.amazon.com](http://developer.amazon.com)
 
 #### Alexa Developer Portal
+
 [http://developer.amazon.com/alexa](http://developer.amazon.com/alexa)
 
 #### AWS SDK for .NET
+
 [http://aws.amazon.com/sdk-for-net/](http://aws.amazon.com/sdk-for-net/)
 
 #### Alexa Skills SDK for .NET (Tim Heuer)
+
 [https://github.com/timheuer/alexa-skills-dotnet](https://github.com/timheuer/alexa-skills-dotnet)
