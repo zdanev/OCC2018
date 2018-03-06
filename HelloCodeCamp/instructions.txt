@@ -1,0 +1,29 @@
+md HelloCodeCamp
+
+cd HelloCodeCamp
+
+dotnet new lambda.EmptyFunction
+
+edit aws-lambda-tools-defaults.json
+  profile: default
+  region: us-east-1
+
+add nuget package Alexa.NET
+
+dotnet restore
+
+edit Function.cs
+  public SkillResponse FunctionHandler(SkillRequest input, ILambdaContext context)
+  {
+      var speech = new Alexa.NET.Response.SsmlOutputSpeech();
+      speech.Ssml = "<speak>Hello, Code Camp!</speak>";
+
+      var finalResponse = ResponseBuilder.Tell(speech);
+      return finalResponse;        
+  }      
+
+dotnet build
+
+dotnet lambda deploy-function
+
+in the AWS console add trigger "Alexa Skills Kit" and set skill Id
