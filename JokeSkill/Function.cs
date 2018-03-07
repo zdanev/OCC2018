@@ -12,17 +12,18 @@ namespace JokeSkill
 {
     public class Function
     {
-        public SkillResponse FunctionHandler(SkillRequest input, ILambdaContext context)
+        public async Task<SkillResponse> FunctionHandler(SkillRequest input, ILambdaContext context)
         {
             var intentRequest = input.Request as IntentRequest;
 
-            if (intentRequest != null && intentRequest.Intent.Name.Equals("JokeIntent"))
+            if (intentRequest != null 
+                && intentRequest.Intent.Name.Equals("JokeIntent"))
             {
                 var person = intentRequest.Intent.Slots["Person"]?.Value;
 
                 if (!string.IsNullOrEmpty(person))
                 {
-                    var joke = GetJoke(person);
+                    var joke = await GetJoke(person);
 
                     return ResponseBuilder.Tell(joke);
                 }
@@ -31,19 +32,16 @@ namespace JokeSkill
             return ResponseBuilder.Tell("sorry");
         }
 
-        private string GetJoke(string person)
+        private async Task<string> GetJoke(string person)
         {
-
             using(var icndb = new RestApi("https://api.icndb.com"))
             {
-                var task = icndb.Get<IcndbResponse<JokeItem>>("/jokes/random", 
+                var response = await icndb.Get<IcndbResponse<JokeItem>>("/jokes/random", 
                     new QueryParam("firstName", person),
                     new QueryParam("lastName", " "));
 
-                task.Wait();
-            
-                return task.Result.Value.Joke;
+                return response.Value.Joke;
             }
-        }       
+        }
     }
 }
