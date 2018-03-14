@@ -191,17 +191,68 @@ RecipeIntent how can I build an {Item}
 
 ---
 
-### Create AWS Lambda function with .net core
+### AWS Lambda - .NET Core CLI
+
+#### Download AWS CLI tools for .net core
 
 [https://docs.aws.amazon.com/lambda/latest/dg/lambda-dotnet-coreclr-deployment-package.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-dotnet-coreclr-deployment-package.html)
+
+#### Install and configure AWS CLI
 
 ```
 aws configure
 dotnet new -i Amazon.Lambda.Templates::*
+```
+
+```
+dotnet new -all
+dotnet new lambda.EmptyFunction --help
+```
+
+---
+
+### Create AWS Lambda function with .net core
+
+#### Create empty lambda project
+
+```
 md HelloLambda
 cd HelloLambda
 dotnet new lambda.EmptyFunction
+```
+
+#### Hello, Lambda!
+
+```c#
+public string FunctionHandler(string input, ILambdaContext context)
+{
+    return $"Hello, {input}!";
+}
+```
+
+#### Deploy the lambda project to AWS
+
+```
 dotnet lambda deploy-function
+```
+
+---
+
+### Create lambda function for Alexa skill
+
+```
+md CodeCampSkill
+cd CodeCampSkill
+dotnet new lambda.EmptyFunction
+```
+
+- install nuget package Alexa.NET
+
+```c#
+public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context)
+{
+
+}
 ```
 
 ---
@@ -222,7 +273,7 @@ dotnet lambda deploy-function
 
 ---
 
-### Testing your Alexa skill
+### Testing and Publishing Alexa skills
 
 #### Testing with simulator
 
@@ -232,9 +283,7 @@ dotnet lambda deploy-function
 
 - login to Alexa Developer Console, and enable the "Test" switch on your skill from the "Test" Tab
 
----
-
-### Deploying Alexa skill
+#### Publishing a skill
 
 ---
 
