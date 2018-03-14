@@ -14,10 +14,20 @@ namespace JokeSkill
     {
         public async Task<SkillResponse> FunctionHandler(SkillRequest input, ILambdaContext context)
         {
+            var logger = context.Logger;
+
             var intentRequest = input.Request as IntentRequest;
 
-            if (intentRequest != null 
-                && intentRequest.Intent.Name.Equals("JokeIntent"))
+            switch (intentRequest?.Intent.Name)
+            {
+                case "JokeIntent":
+                    break;
+
+                case "FactIntent":
+                    break;
+            }
+
+            if (intentRequest?.Intent.Name == "JokeIntent")
             {
                 var person = intentRequest.Intent.Slots["Person"]?.Value;
 

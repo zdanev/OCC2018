@@ -18,17 +18,19 @@
 
 ---
 
-### Dartmouth Workshop
+### The birth of AI
+
+#### Dartmouth Workshop
 
 > "We propose that a 2 month, 10 man study of artificial intelligence be carried out during the summer of 1956 at Dartmouth College in Hanover, New Hampshire. The study is to proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it. An attempt will be made to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves. We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer."
 
--- John McCarthy, 1955
+-- John McCarthy (creator of Lisp), 1955
 
 ---
 
-### "Time flies like an arrow"
+### Why is NLP so hard?
 
-#### "Fruit flies like a bannana"
+#### "Time flies like an arrow", "Fruit flies like a bannana"
 
 > "A grammar that pretends to describe English at all accurately must yield a structure for “Time flies like an arrow” in which “time” is the subject of the verb “flies” and “like an arrow” is an adverbial phrase modifying the verb. “Time” can also serve attributively, however, as in “time bomb,” and “flies” of course can serve as a noun. Together with “like” interpreted as a verb, this yields a structure that becomes obvious only if one thinks of a kind of flies called “time flies,” which happen to like an arrow, perhaps as a meal. Moreover, “time” as an imperative verb with “flies” as a noun also yields a structure that makes sense as an order to someone to take out his stopwatch and time flies with great dispatch, or like an arrow."
 
@@ -139,14 +141,24 @@ Alexa, ASK SurfReport ABOUT high-tide tomorrow
 
 ### Intents
 
-- Build-in intents
-    - AMAZON.HelpIntent
-    - AMAZON.StopIntent
-    - AMAZON.CancelIntent
-    - AMAZON.YesIntent
-    - AMAZON.NoIntent
-- Custom intents
-- Slots
+#### Build-in intents
+
+- AMAZON.HelpIntent
+- AMAZON.StopIntent
+- AMAZON.CancelIntent
+- AMAZON.YesIntent
+- AMAZON.NoIntent
+
+#### Custom intents
+
+---
+
+### Slots
+
+- {SlotName}
+- Slot Type (i.e. DATE)
+- Required
+    - Prompt
 
 ---
 
@@ -188,6 +200,36 @@ RecipeIntent how can I build an {Item}
         ]
     }
 ```
+
+---
+
+### Speech Synthesis Markup Language (SSML)
+
+[https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html](https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html)
+
+```
+<speak>
+    I want to tell you a secret. 
+    <amazon:effect name="whispered">I am not a real human.</amazon:effect>.
+    Can you believe it?
+</speak>
+```
+
+---
+
+### Create Alexa skill
+
+[http://developer.amazon.com/alexa/console/ask](http://developer.amazon.com/alexa/console/ask)
+
+1. Provide skill name (i.e. CodeCampSkill)
+2. Select skill type (i.e. Custom)
+3. Add skill invocation name
+    - Two or more lower case words
+    - Cannot be a lunch phrase (Launch, Ask, Tell, Load, Begin, Enable)
+    - Cannot be a wake word (Alexa, Echo, Amazon, Computer)
+    - Does not need to be unique
+4. Add custom intent
+5. Add sample utterances
 
 ---
 
@@ -240,36 +282,104 @@ dotnet lambda deploy-function
 
 ### Create lambda function for Alexa skill
 
+#### Create an empty lambda function
+
 ```
 md CodeCampSkill
 cd CodeCampSkill
 dotnet new lambda.EmptyFunction
 ```
 
-- install nuget package Alexa.NET
+#### Install nuget package Alexa.NET
+
+```
+dotnet add package alexa.net
+```
+
+#### Edit the function hanlder
 
 ```c#
 public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context)
 {
+    var logger = context.Logger;
+    var requestType = request.GetRequestType();
 
+    if (requestType == typeof(Alexa.NET.Request.Type.LaunchRequest))
+    {
+        logger.Log("Launch Request");
+    }
 }
 ```
 
 ---
 
-### Create Alexa skill
+### Create lambda function for Alexa skill (continued)
 
-[http://developer.amazon.com/alexa/console/ask](http://developer.amazon.com/alexa/console/ask)
+#### Check the intent type
 
-1. Provide skill name (i.e. CodeCampSkill)
-2. Select skill type (i.e. Custom)
-3. Add skill invocation name
-    - Two or more lower case words
-    - Cannot be a lunch phrase (Launch, Ask, Tell, Load, Begin, Enable)
-    - Cannot be a wake word (Alexa, Echo, Amazon, Computer)
-    - Does not need to be unique
-4. Add custom intent
-5. Add sample utterances
+```c#
+var intentRequest = input.Request as IntentRequest;
+
+switch (intentRequest?.Intent.Name)
+{
+    case "FirstIntent":
+        // handle FirstIntent
+        break;
+
+    case "SecondIntent":
+        // handle SecondIntent
+        break;
+
+    default:
+        // handle "other"?
+        break;
+}
+```
+
+---
+
+### Create lambda function for Alexa skill (continued)
+
+#### Read slot value(s)
+
+```c#
+var intentRequest = input.Request as IntentRequest;
+
+if (intentRequest?.Intent.Name == "MyIntent")
+{
+    var firstName = intentRequest?.Intent.Slots["FirstName"]?.Value;
+    var lastName = intentRequest?.Intent.Slots["LastName"]?.Value;
+
+    if (!string.IsNullOrEmpty(firstName))...
+
+    if (!string.IsNullOrEmpty(lastName))...
+}
+```
+
+---
+
+### Create lambda function for Alexa skill (continued)
+
+#### Simple response
+
+```c#
+var speech = new Alexa.NET.Response.SsmlOutputSpeech();
+speech.Ssml = "<speak>Hello, SSML</speak>";
+
+
+return ResponseBuilder.Tell(speech);
+```
+
+#### Simple response with card
+
+```c#
+var speech = new Alexa.NET.Response.SsmlOutputSpeech();
+speech.Ssml = "<speak>Hello, SSML</speak>";
+
+
+return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
+
+```
 
 ---
 
