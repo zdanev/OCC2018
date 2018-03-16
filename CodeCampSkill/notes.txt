@@ -1,0 +1,35 @@
+md CodeCampSkill
+cd CodeCampSkill
+
+dotnet new lambda.EmptyFunction
+dotnet add package Alexa.net
+
+copy \dev\CodeCampApi\CodeCampApi.cs
+copy \dev\CodeCampApi\RestHelper.cs
+
+edit aws-lambda-tools-defaults.json
+"profile": "default"
+"region" : "us-east-1"
+
+add code to function handler
+
+dotnet restore
+dotnet build
+
+dotnet lambda deploy-function
+
+go to aws.amazon.com
+add Alexa Skill trigger
+configure skill id
+copy ARN
+
+go to developer.amazon.com/alexa
+create new Alexa skill
+set invocation name "code camp"
+add "SpeakerInfo" intent
+- sample uterance "tell me about speaker {SpeakerName}", "tell me about {SpeakerName}"
+add "SpeakerName" slot of type "AMAZON.Person"
+save, build
+test "launch code camp", 
+"ask code camp about Zdravko Danev", 
+"ask code camp about speaker Esteban Garcia"
