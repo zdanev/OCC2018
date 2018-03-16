@@ -290,15 +290,18 @@ RecipeIntent how can I build an {Item}
 
 [http://developer.amazon.com/alexa/console/ask](http://developer.amazon.com/alexa/console/ask)
 
-1. Provide skill name (i.e. CodeCampSkill)
-2. Select skill type (i.e. Custom)
-3. Add skill invocation name
+1. Provide skill name (i.e. _"CodeCampSkill"_)
+2. Select skill type (i.e. _"Custom"_)
+3. Add skill invocation name (i.e. _"code camp"_)
     - Two or more lower case words
-    - Cannot be a lunch phrase (Launch, Ask, Tell, Load, Begin, Enable)
+    - Cannot be a lunch phrase (launch, ask, tell, load, begin, enable)
     - Cannot be a wake word (Alexa, Echo, Amazon, Computer)
     - Does not need to be unique
-4. Add custom intent
-5. Add sample utterances
+4. Add custom intent (i.e. _"SpeakerInfo"_)
+5. Add sample utterances (i.e. _"tell me about {SpeakerName}"_)
+6. Add slots (i.e. _"SpeakerName"_ of type AMAZON.Person)
+7. Configure the end-point
+8. Save and build
 
 ---
 
