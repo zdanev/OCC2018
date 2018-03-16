@@ -448,7 +448,6 @@ var speech = new Alexa.NET.Response.SsmlOutputSpeech();
 speech.Ssml = "<speak>Hello, SSML</speak>";
 
 return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
-
 ```
 
 ---

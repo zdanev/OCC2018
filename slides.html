@@ -161,9 +161,9 @@ code {
 
 #### Synonyms
 
-** Alexa: ** Small, medium or large?
+**Alexa:** Small, medium or large?
 
-** User: ** tiny (or huge)
+**User:** tiny (or huge)
 
 #### Overfilling
 
@@ -510,7 +510,6 @@ if (intentRequest?.Intent.Name == "MyIntent")
 var speech = new Alexa.NET.Response.SsmlOutputSpeech();
 speech.Ssml = "<speak>Hello, SSML</speak>";
 
-
 return ResponseBuilder.Tell(speech);
 ```
 
@@ -520,9 +519,7 @@ return ResponseBuilder.Tell(speech);
 var speech = new Alexa.NET.Response.SsmlOutputSpeech();
 speech.Ssml = "<speak>Hello, SSML</speak>";
 
-
 return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
-
 ```
 
 ---
