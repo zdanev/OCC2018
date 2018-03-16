@@ -89,9 +89,9 @@
 
 #### Synonyms
 
-** Alexa: ** Small, medium or large?
+**Alexa:** Small, medium or large?
 
-** User: ** tiny (or huge)
+**User:** tiny (or huge)
 
 #### Overfilling
 
