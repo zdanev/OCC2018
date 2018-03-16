@@ -438,7 +438,6 @@ if (intentRequest?.Intent.Name == "MyIntent")
 var speech = new Alexa.NET.Response.SsmlOutputSpeech();
 speech.Ssml = "<speak>Hello, SSML</speak>";
 
-
 return ResponseBuilder.Tell(speech);
 ```
 
@@ -447,7 +446,6 @@ return ResponseBuilder.Tell(speech);
 ```c#
 var speech = new Alexa.NET.Response.SsmlOutputSpeech();
 speech.Ssml = "<speak>Hello, SSML</speak>";
-
 
 return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
 
