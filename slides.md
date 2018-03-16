@@ -47,6 +47,66 @@
 
 ---
 
+### Designing for Voice
+
+#### GUI vs VUI
+
+- Graphs vs Frames
+
+#### Voice First
+
+- Coherent conversation
+- Must sound natural
+- Must sound good to the user
+- Add some variation to the responses
+- No training
+
+---
+
+### One Breath Rule
+
+#### A
+
+**User:** Alexa, let's book a flight on Delta from Los Angeles to Orlando next Tuesday at 4:45pm returning on Wednesday at 7:00pm.
+
+**Alexa:** _Your total is $465._
+
+#### B
+
+**User:** Alexa, let's book a flight to Orlando.
+
+**Alexa:** _Your prefered airport is Los Angeles. When do you want to fly?_
+
+**User:** Next Tuesday
+
+**Alexa:** _Morning or afternoon?_
+
+**User:** Which is the cheapest fligh?
+
+---
+
+### Unexpected and Incomplete Responses
+
+#### Synonyms
+
+** Alexa: ** Small, medium or large?
+
+** User: ** tiny (or huge)
+
+#### Overfilling
+
+**Alexa:** _Where do you want to fly?_
+
+**User:** I want to fly to Tokyo next week.
+
+#### Underfilling
+
+**Alexa:** _What date and time do you want to return?_
+
+**User:** Wednesday
+
+---
+
 ### Before you begin
 
 #### Register for a developer account(s)
@@ -67,26 +127,6 @@
 ![flow diagram](flow-800.png)
 
 image is from article in *CODE Magazine*
-
----
-
-### Structure of a Command
-
-#### Wake Word + Phrase + Invocation Name + Intent (+ optional limit)
-
-Wake word: Alexa, Echo, Computer, Amazon
-
-Command: Ask, Tell, Play, Turn on/off, Begin, Launch, Open, Resume, Start, Talk to, Use
-
-Prepositions: About, For, If, To
-
-#### Examples
-
-Alexa, TURN OFF the lights
-
-Alexa, PLAY artist Metallica
-
-Alexa, ASK SurfReport ABOUT high-tide tomorrow
 
 ---
 
@@ -139,6 +179,26 @@ Alexa, ASK SurfReport ABOUT high-tide tomorrow
 
 ---
 
+### Structure of a Command
+
+#### Wake Word + Phrase + Invocation Name + Intent (+ optional limit)
+
+**Wake word:** Alexa, Echo, Computer, Amazon
+
+**Command:** ask, tell, play, turn on/off, begin, launch, open, resume, start, talk to, use
+
+**Prepositions:** about, for, if, to
+
+#### Examples
+
+_Alexa,_ **turn off** the lights.
+
+_Alexa,_ **play** artist Metallica.
+
+_Alexa,_ **ask** SurfReport **about** high-tide tomorrow.
+
+---
+
 ### Intents
 
 #### Build-in intents
@@ -159,6 +219,7 @@ Alexa, ASK SurfReport ABOUT high-tide tomorrow
 - Slot Type (i.e. DATE)
 - Required
     - Prompt
+- Synonyms
 
 ---
 
