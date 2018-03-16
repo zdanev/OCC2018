@@ -482,7 +482,7 @@ return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
 
 ### Monetization of skill
 
-- Alexa Fund  ([http://developer.amazon.com/alexa-fund](http://developer.amazon.com/alexa-fund))
+- Alexa Fund ([http://developer.amazon.com/alexa-fund](http://developer.amazon.com/alexa-fund))
 
 - Subscriptions _(coming soon)_
 
