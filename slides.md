@@ -203,9 +203,9 @@ _Alexa,_ **ask** SurfReport **about** high-tide tomorrow.
 
 #### Build-in intents
 
-- AMAZON.HelpIntent
-- AMAZON.StopIntent
-- AMAZON.CancelIntent
+- AMAZON.HelpIntent _(provide user with info how to use the skill)_
+- AMAZON.StopIntent _(stop and exit the skill)_
+- AMAZON.CancelIntent _(cancel the current transaction, stay in the skill)_
 - AMAZON.YesIntent
 - AMAZON.NoIntent
 
@@ -215,10 +215,16 @@ _Alexa,_ **ask** SurfReport **about** high-tide tomorrow.
 
 ### Slots
 
-- {SlotName}
-- Slot Type (i.e. DATE)
-- Required
-    - Prompt
+- {SlotName} (unique, case insensitive)
+- Slot Type 
+    - AMAZON.DATE
+    - AMAZON.TIME
+    - AMAZON.NUMBER
+    - AMAZON.FOUR_DIGIT_NUMBER
+    - etc...
+- Optional or Required
+- Prompt
+- Confirmation
 - Synonyms
 
 ---
@@ -271,7 +277,9 @@ RecipeIntent how can I build an {Item}
 ```
 <speak>
     I want to tell you a secret. 
-    <amazon:effect name="whispered">I am not a real human.</amazon:effect>.
+    <amazon:effect name="whispered">
+        I am not a real human.
+    </amazon:effect>.
     Can you believe it?
 </speak>
 ```
@@ -444,7 +452,7 @@ return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
 
 ---
 
-### Testing and Publishing Alexa skills
+### Testing Alexa skills
 
 #### Testing with simulator
 
@@ -454,7 +462,33 @@ return ResponseBuilder.TellWithCard(speech, cardTitle, cardBody);
 
 - login to Alexa Developer Console, and enable the "Test" switch on your skill from the "Test" Tab
 
-#### Publishing a skill
+#### Beta testing
+
+---
+
+### Publishing a skill
+
+- Accept the agreement
+
+- Provide payout information
+
+- Provide tax information
+
+- Provide skill rating
+
+- Submit and wait for approval
+
+---
+
+### Monetization of skill
+
+- Alexa Fund  ([http://developer.amazon.com/alexa-fund](http://developer.amazon.com/alexa-fund))
+
+- Subscriptions _(coming soon)_
+
+- One-time purchase
+
+- Amazon Pay
 
 ---
 
