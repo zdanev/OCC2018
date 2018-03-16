@@ -45,30 +45,40 @@ namespace CodeCampSkill
     {
         public async Task<SkillResponse> FunctionHandler(SkillRequest input, ILambdaContext context)
         {
-            var message = string.Empty;
             var requestType = input.GetRequestType();
             var intentRequest = input.Request as IntentRequest;
 
             if (requestType == typeof(Alexa.NET.Request.Type.LaunchRequest))
             {
-                message = Prompts.Greetings.PickRandom();
+                return ResponseBuilder.Tell(Prompts.Greetings.PickRandom());
             } 
             else if (intentRequest?.Intent.Name == "SpeakerInfo") 
             {
-                var speakerName = intentRequest.Intent.Slots["SpeakerName"].Value;
+                try
+                {
+                    var speakerName = intentRequest.Intent.Slots["SpeakerName"].Value;
 
-                var codeCampApi = new CodeCampApi();
-                var speaker = await codeCampApi.GetSpeaker(speakerName);
-                message = speaker.ToString();
+                    var codeCampApi = new CodeCampApi();
+                    var speaker = await codeCampApi.GetSpeaker(speakerName);
+
+                    if (speaker != null)
+                    {
+                        var info = speaker.ToString();
+                        return ResponseBuilder.TellWithCard(info, speaker.FullName, info);
+                    }
+                }
+                catch
+                {
+                    // ignore, fall back to "sorry"
+                }
             }
             else if (intentRequest?.Intent.Name == "AMAZON.HelpIntent") 
             {
-                message = Prompts.Help.PickRandom();
+                var help = Prompts.Help.PickRandom();
+                return ResponseBuilder.TellWithCard(help, "Help", help);
             }
 
-            var speech = new Alexa.NET.Response.SsmlOutputSpeech();
-            speech.Ssml = $"<speak>{message ?? Prompts.Sorry.PickRandom()}</speak>";
-            return ResponseBuilder.Tell(speech);
-        }
+            return ResponseBuilder.Tell(Prompts.Sorry.PickRandom());
+         }
     }
 }
