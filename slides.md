@@ -30,13 +30,22 @@
 
 ### CRAY-1
 
-![cray-1](cray-1.jpg)
+![cray-1](cray-1-80.jpg)
+
+- 1976
+- 5 tons
+- $8M + $1M for disk
+- 160MFLOPS
 
 ---
 
 ### Raspberry Pi
 
 ![raspberry-pi](raspberry-pi.jpg)
+
+- 2015
+- $25
+- 380MFLOPS
 
 ---
 
